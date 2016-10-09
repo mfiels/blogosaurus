@@ -5,11 +5,11 @@
   "private": true,
   "dependencies": {
     "babel-polyfill": "6.16.0",
-    "cheerio": "0.22.0",
     "eslint-config-airbnb": "12.0.0",
     "eslint-plugin-import": "1.16.0",
     "eslint-plugin-jsx-a11y": "2.2.3",
     "eslint-plugin-react": "6.3.0",
+    "handlebars": "4.0.5",
     "highlight.js": "9.7.0",
     "markdown-it": "8.0.0",
     "markdown-it-attrs": "0.7.1",

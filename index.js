@@ -1,24 +1,27 @@
+require('babel-polyfill');
+
 const mkdirp = require('mkdirp');
 const argv = require('optimist')
     .default('o', false)
-    .default('t', './')
+    .default('b', './blog')
+    .default('p', 'posts')
+    .default('t', 'post.template.html')
     .default('d', 'default.template.html')
-    .default('p', '.bs-post')
+    .default('m', 'post.md')
+    .default('e', 'metadata.json')
     .argv;
 
-const HtmlWriter = require('./src/htmlWriter.js');
+const BlogParser = require('./src/blogParser.js');
+const BlogWriter = require('./src/blogWriter.js');
 const Renderer = require('./src/renderer.js');
-const TemplateSubstitution = require('./src/templateSubstitution.js');
 
-if (argv.o) {
-  mkdirp.sync(argv.o);
+if (!argv.o) {
+  console.error('Must specify an output directory with -o');
+  process.exit(1);
 }
 
-const writer = new HtmlWriter(
-    new Renderer(),
-    new TemplateSubstitution(argv.t, argv.d, argv.p),
-    argv.o);
+mkdirp.sync(argv.o);
 
-argv._.forEach((markdownFileName) => {
-  writer.write(markdownFileName);
-});
+const blog = BlogParser.parse(argv.b, argv.d, argv.p, argv.m, argv.e, argv.t);
+const writer = new BlogWriter(new Renderer(), argv.o);
+writer.write(blog);
