@@ -1,0 +1,22 @@
+{
+  "name": "blogosaurus",
+  "description": "Compiles markdown to HTML for static blog posts.",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "babel-polyfill": "6.16.0",
+    "cheerio": "0.22.0",
+    "eslint-config-airbnb": "12.0.0",
+    "eslint-plugin-import": "1.16.0",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-react": "6.3.0",
+    "highlight.js": "9.7.0",
+    "markdown-it": "8.0.0",
+    "markdown-it-attrs": "0.7.1",
+    "mkdirp": "0.5.1",
+    "optimist": "0.6.1"
+  },
+  "devDependencies": {
+    "eslint": "3.7.1"
+  }
+}
